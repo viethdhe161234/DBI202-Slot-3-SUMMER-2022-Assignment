@@ -1,0 +1,25 @@
+CREATE TABLE Student(
+	[sid] INT NOT NULL PRIMARY KEY,
+	[sname] NVARCHAR(150) NOT NULL CHECK(LEN(sname) >= 3),
+	[gender] BIT NOT NULL DEFAULT 1,
+	[dob] DATE NOT NULL CHECK( YEAR(GETDATE()) - YEAR(dob) >= 18),
+	[address] VARCHAR(10) NOT NULL,
+	[IdCard] VARCHAR(10) NOT NULL UNIQUE
+);
+
+CREATE TABLE Teacher(
+	[tid] INT NOT NULL PRIMARY KEY,
+	[tname] NVARCHAR(150) NOT NULL CHECK(LEN(tname) >= 3),
+	[address] VARCHAR(10) NOT NULL,
+	[contact] VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE [Group](
+	[gid] INT NOT NULL PRIMARY KEY,
+	[gname] NVARCHAR(150) NOT NULL 
+);
+
+CREATE TABLE Subjects(
+	[suid] INT NOT NULL PRIMARY KEY,
+	[suname] NVARCHAR(150) NOT NULL 
+);
